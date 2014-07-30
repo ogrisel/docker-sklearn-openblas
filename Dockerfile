@@ -2,7 +2,7 @@ FROM ogrisel/openblas
 MAINTAINER Olivier Grisel <olivier.grisel@ensta.org>
 
 # System dependencies
-RUN apt-get -y git-core build-essential gfortran python3-dev curl
+RUN apt-get install -y git-core build-essential gfortran python3-dev curl
 RUN curl https://bootstrap.pypa.io/get-pip.py | python3
 RUN pip3 install cython
 
@@ -28,7 +28,8 @@ RUN pip3 install git+git://github.com/scikit-learn/scikit-learn.git
 # Reduce the image size
 WORKDIR $HOME
 RUN pip3 uninstall -y cython
-RUN (apt-get remove -y --purge curl git-core build-essential; \
+RUN (apt-get remove -y --purge curl git-core build-essential gfortran \
+                               python3-dev;
      apt-get autoremove -y; \
      apt-get clean -y)
 RUN rm -rf /tmp/build
