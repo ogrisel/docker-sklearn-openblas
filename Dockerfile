@@ -28,8 +28,7 @@ RUN pip3 install git+git://github.com/scikit-learn/scikit-learn.git
 # Reduce the image size
 WORKDIR $HOME
 RUN pip3 uninstall -y cython
-RUN (apt-get remove -y --purge curl git-core build-essential gfortran \
-                               python3-dev; \
+RUN (apt-get remove -y --purge curl git-core build-essential python3-dev; \
      apt-get autoremove -y; \
      apt-get clean -y)
 RUN rm -rf /tmp/build
