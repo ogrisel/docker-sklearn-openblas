@@ -3,7 +3,7 @@ ogrisel/sklearn-openblas
 
 Docker container that derives from `ogrisel/openblas` managed at:
 
-    https://github.com/ogrisel/docker-openblas
+  - https://github.com/ogrisel/docker-openblas
 
 You can use it with:
 
